@@ -32,7 +32,7 @@ module Jekyll
     @slider_height = nil
     Captions = /captions/i
     Height = /(auto|\d+:\d+)/i
-    Height_Numeric = /(\d+[^: ])/i
+    Height_Numeric = /\d+/i
 
     def initialize(name, markup, tokens)
       if markup =~ Height
