@@ -57,7 +57,7 @@ And the plugin will add a clickable link to each image in the slider:
 </div>
 ```
 
-You can define the height of a slider by placing a number or an aspect ratio after `slider`. If you don't specify  height, the slider will default to `auto`.
+You can define the height of a slider by placing a number or an aspect ratio after `slider`. If you don't specify  height, the slider will [default to `auto`](https://github.com/gilbitron/Ideal-Image-Slider#settings).
 
 ```
 {% slider 700 %}
