@@ -57,7 +57,7 @@ And the plugin will add a clickable link to each image in the slider:
 </div>
 ```
 
-You can define the height of a slider by placing a number or an aspect ratio after `slider`. If you don't specify  height, the slider will default to `16:9` aspect ratio. If you use `auto` the slider will automatically resize to the height of each image:
+You can define the height of a slider by placing a number or an aspect ratio after `slider`. If you don't specify  height, the slider will default to `auto` where the slider will automatically resize to the height of each image:
 
 ```
 {% slider 700 %}
@@ -81,7 +81,7 @@ If you add `captions` after the height variable, it will enable captions for the
 
 ## Integration suggestions
 
-Add this to the template for your page head:
+Add this to your page head template:
 
 ```
 <!-- Slider -->
@@ -93,10 +93,10 @@ Add this to the template for your page head:
 
 Don't forget to change the locations to point towards wherever you have placed the Ideal Image Slider javascript and CSS files.
 
-You can selectively include these files. The plugin sets `include_slider` to `true` for each page or post with a slider tag. This way the slider CSS and Javascript will be loaded only for those pages with sliders.
+You can selectively include these files. The plugin sets `slider_active` to `true` for each page or post with a slider tag. This way the slider CSS and Javascript will be loaded only for those pages with sliders.
 
 ```
-{% if page.include_slider or page.index %}
+{% if page.slider_active or page.index %}
 <!-- Slider -->
 <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/slider/slider.css">
 <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/slider/theme.css">

@@ -40,7 +40,7 @@ module Jekyll
       elsif markup =~ Height_Numeric
         @slider_height = $1
       else
-        @slider_height = "\'16:9\'"
+        @slider_height = "\'auto\'"
       end
       if markup =~ Captions
         @slider_captions = "true"
@@ -49,7 +49,7 @@ module Jekyll
     end
 
     def render(context)
-      context.environments.first['page']['include_slider'] = true
+      context.environments.first['page']['slider_active'] = true
       if @slider_height
         # generate slider id
         slider_id = "slider_" + ("a".."z").to_a.shuffle[0,5].join
