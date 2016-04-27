@@ -87,8 +87,8 @@ Add this to your page head template:
 <!-- Slider -->
 <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/slider/slider.css">
 <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/slider/theme.css">
-<script src="{{ site.baseurl }}/assets/js/slider.js"></script>
-<script src="{{ site.baseurl }}/assets/js/iis-captions.js"></script>
+<script async src="{{ site.baseurl }}/assets/js/slider.js"></script>
+<script async src="{{ site.baseurl }}/assets/js/iis-captions.js"></script>
 ```
 
 Don't forget to change the locations to point towards wherever you have placed the Ideal Image Slider javascript and CSS files.
@@ -100,7 +100,7 @@ You can selectively include these files. The plugin sets `slider_active` to `tru
 <!-- Slider -->
 <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/slider/slider.css">
 <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/slider/theme.css">
-<script src="{{ site.baseurl }}/assets/js/slider.js"></script>
-<script src="{{ site.baseurl }}/assets/js/iis-captions.js"></script>
+<script async src="{{ site.baseurl }}/assets/js/slider.js"></script>
+<script async src="{{ site.baseurl }}/assets/js/iis-captions.js"></script>
 {% endif %}
 ```
