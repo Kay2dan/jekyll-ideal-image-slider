@@ -85,8 +85,8 @@ Add this to your page head template:
 
 ```
 <!-- Slider -->
-<link rel="stylesheet" href="{{ site.baseurl }}/assets/css/slider/slider.css">
-<link rel="stylesheet" href="{{ site.baseurl }}/assets/css/slider/theme.css">
+<link rel="stylesheet" href="{{ site.baseurl }}/assets/css/slider.css">
+<link rel="stylesheet" href="{{ site.baseurl }}/assets/css/theme.css">
 <script async src="{{ site.baseurl }}/assets/js/slider.js"></script>
 <script async src="{{ site.baseurl }}/assets/js/iis-captions.js"></script>
 ```
@@ -98,8 +98,8 @@ You can selectively include these files. The plugin sets `slider_active` to `tru
 ```
 {% if page.slider_active or page.index %}
 <!-- Slider -->
-<link rel="stylesheet" href="{{ site.baseurl }}/assets/css/slider/slider.css">
-<link rel="stylesheet" href="{{ site.baseurl }}/assets/css/slider/theme.css">
+<link rel="stylesheet" href="{{ site.baseurl }}/assets/css/slider.css">
+<link rel="stylesheet" href="{{ site.baseurl }}/assets/css/theme.css">
 <script async src="{{ site.baseurl }}/assets/js/slider.js"></script>
 <script async src="{{ site.baseurl }}/assets/js/iis-captions.js"></script>
 {% endif %}
