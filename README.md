@@ -1,12 +1,14 @@
 # Jekyll Ideal Image Slider
 
-Jekyll tag plugin to create image sliders using [Ideal Image Slider](https://github.com/gilbitron/Ideal-Image-Slider).
+Liquid tag plugin for Jekyll to create image sliders using  [Ideal Image Slider](https://github.com/gilbitron/Ideal-Image-Slider).
 
 ## Installation
 
-1) Add `ideal_image_slider.rb` to your `_plugins` folder.
+1. Add `ideal_image_slider.rb` to your `_plugins` folder.
 
-2) Download and add [Ideal Image Slider](https://github.com/gilbitron/Ideal-Image-Slider) to your site. See below for [integration suggestions](#integration-suggestions).
+2. Add this to your `_config.yml` file: `slider_array: []`
+
+3. Download and add [Ideal Image Slider](https://github.com/gilbitron/Ideal-Image-Slider) to your site. See below for [integration suggestions](#integration-suggestions).
 
 ## Syntax
 
@@ -81,26 +83,58 @@ If you add `captions` after the height variable, it will enable captions for the
 
 ## Integration suggestions
 
-Add this to your page head template:
+Add the CSS to your page head template:
+
+```
+<!-- Slider CSS -->
+<link rel="stylesheet" href="{{ site.baseurl }}/assets/css/slider.css">
+<link rel="stylesheet" href="{{ site.baseurl }}/assets/css/theme.css">
+```
+
+Add the Javascript to your page template just before the `</body>` tag:
 
 ```
 <!-- Slider -->
-<link rel="stylesheet" href="{{ site.baseurl }}/assets/css/slider.css">
-<link rel="stylesheet" href="{{ site.baseurl }}/assets/css/theme.css">
-<script async src="{{ site.baseurl }}/assets/js/slider.js"></script>
-<script async src="{{ site.baseurl }}/assets/js/iis-captions.js"></script>
+<script src="{{ site.baseurl }}/assets/js/slider.js"></script>
+<script src="{{ site.baseurl }}/assets/js/iis-captions.js"></script>
+<!-- Sliders on pages -->
+{% for script in page.slider_scripts %}
+  {{ script }}
+{% endfor %}
+<!-- Sliders on indexes -->
+{% for post in paginator.posts %}
+  {% for script in post.slider_scripts %}
+    {{ script }}
+  {% endfor %}
+{% endfor %}
 ```
 
 Don't forget to change the locations to point towards wherever you have placed the Ideal Image Slider javascript and CSS files.
 
-You can selectively include these files. The plugin sets `slider_active` to `true` for each page or post with a slider tag. This way the slider CSS and Javascript will be loaded only for those pages with sliders.
+You can selectively include these files. The plugin sets `slider_active` to `true` for each page or post with a slider tag. Using the code below, CSS and Javascript will be loaded only for those pages with sliders, and on page indexes. (Sometimes an image slider will appear on a page index, especially if you're using excerpts.)
 
 ```
 {% if page.slider_active or page.index %}
-<!-- Slider -->
-<link rel="stylesheet" href="{{ site.baseurl }}/assets/css/slider.css">
-<link rel="stylesheet" href="{{ site.baseurl }}/assets/css/theme.css">
-<script async src="{{ site.baseurl }}/assets/js/slider.js"></script>
-<script async src="{{ site.baseurl }}/assets/js/iis-captions.js"></script>
+  <!-- Slider CSS -->
+  <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/slider.css">
+  <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/theme.css">
+{% endif %}
+```
+
+```
+{% if page.slider_active or page.index %}
+  <!-- Slider -->
+  <script src="{{ site.baseurl }}/assets/js/slider.js"></script>
+  <script src="{{ site.baseurl }}/assets/js/iis-captions.js"></script>
+  <!-- Sliders on pages -->
+  {% for script in page.slider_scripts %}
+    {{ script }}
+  {% endfor %}
+  <!-- Sliders on indexes -->
+  {% for post in paginator.posts %}
+    {% for script in post.slider_scripts %}
+      {{ script }}
+    {% endfor %}
+  {% endfor %}
 {% endif %}
 ```

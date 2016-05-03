@@ -32,15 +32,15 @@ module Jekyll
     @slider_height = nil
     Captions = /captions/i
     Height = /(auto|\d+:\d+)/i
-    Height_Numeric = /\d+/i
+    Height_Numeric = /(\d+)/i
 
     def initialize(name, markup, tokens)
       if markup =~ Height
         @slider_height = "\'#{$1}\'"
       elsif markup =~ Height_Numeric
-        @slider_height = $1
+        @slider_height = "#{$1}"
       else
-        @slider_height = "\'auto\'"
+        @slider_height = "\'16:9\'"
       end
       if markup =~ Captions
         @slider_captions = "true"
@@ -61,18 +61,22 @@ module Jekyll
         else
           site.getConverterImpl(Jekyll::Converters::Markdown)
         end
+        # render the slider script
+        slider_script = "<script>"
+        slider_script += "var slider = new IdealImageSlider.Slider({"
+        slider_script += "selector:\'\##{slider_id}\',"
+        slider_script += "height:#{@slider_height}"
+        slider_script += "});"
+        slider_script += "slider.addCaptions();" if @slider_captions
+        slider_script += "slider.start();"
+        slider_script += "</script>"
+        slider_array = context.environments.first['site']['slider_array']
+        slider_array << slider_script
+        context.environments.first['page']['slider_scripts'] = slider_array
         # render the markdown, then remove all <p></p> tags from the html
         output = converter.convert(render_block(context)).gsub(/<\/?p>/, '')
         # render the slider
-        slider  = "<div class=\"iis-slider\" id=\"#{slider_id}\">#{output}</div>"
-        slider += "<script>"
-        slider += "var slider = new IdealImageSlider.Slider({"
-        slider += "selector: \'\##{slider_id}\',"
-        slider += "height: #{@slider_height}"
-        slider += "});"
-        slider += "slider.addCaptions();" if @slider_captions
-        slider += "slider.start();"
-        slider += "</script>"
+        slider = "<div class=\"iis-slider\" id=\"#{slider_id}\">#{output}</div>"
         slider
       else
         "Error processing input, expected syntax: {% slider height [captions] %}"
