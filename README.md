@@ -109,9 +109,9 @@ Add the Javascript to your page template just before the `</body>` tag:
 {% endfor %}
 ```
 
-Don't forget to change the locations to point towards wherever you have placed the Ideal Image Slider javascript and CSS files.
+Be sure to change the paths to point the location of Javascript and CSS files in your site.
 
-You can selectively include these files. The plugin sets `slider_active` to `true` for each page or post with a slider tag. Using the code below, CSS and Javascript will be loaded only for those pages with sliders, and on page indexes. (Sometimes an image slider will appear on a page index, especially if you're using excerpts.)
+You can selectively include these files. The plugin sets `slider_active` to `true` for each page or post with a slider. Using the code below, CSS and Javascript will be loaded only for those pages with sliders, and on page indexes. (Sometimes an image slider will appear on a page index, for example in post excerpts.)
 
 ```
 {% if page.slider_active or page.index %}
