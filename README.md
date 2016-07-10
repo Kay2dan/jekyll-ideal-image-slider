@@ -111,10 +111,10 @@ Add the Javascript to your page template just before the `</body>` tag:
 
 Be sure to change the paths to point the location of Javascript and CSS files in your site.
 
-You can selectively include these files. The plugin sets `slider_active` to `true` for each page or post with a slider. Using the code below, CSS and Javascript will be loaded only for those pages with sliders, and on page indexes. (Sometimes an image slider will appear on a page index, for example in post excerpts.)
+You can selectively include these files. The plugin sets `slider_active` to `true` for each page or post with a slider. Using the code below, CSS and Javascript will be loaded only for those pages with sliders.
 
 ```
-{% if page.slider_active or page.index %}
+{% if page.slider_active %}
   <!-- Slider CSS -->
   <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/slider.css">
   <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/theme.css">
@@ -122,7 +122,7 @@ You can selectively include these files. The plugin sets `slider_active` to `tru
 ```
 
 ```
-{% if page.slider_active or page.index %}
+{% if page.slider_active %}
   <!-- Slider -->
   <script src="{{ site.baseurl }}/assets/js/slider.js"></script>
   <script src="{{ site.baseurl }}/assets/js/iis-captions.js"></script>
