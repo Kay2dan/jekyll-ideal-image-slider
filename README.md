@@ -138,3 +138,5 @@ You can selectively include these files. The plugin sets `slider_active` to `tru
   {% endfor %}
 {% endif %}
 ```
+
+Note: It's possible that the above `Sliders on indexes` code might not work on Jekyll 2.5.3, if so please let me know by [commenting on this issue.](https://github.com/xHN35RQ/jekyll-ideal-image-slider/issues/1)
