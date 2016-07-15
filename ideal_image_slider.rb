@@ -40,7 +40,7 @@ module Jekyll
       elsif markup =~ Height_Numeric
         @slider_height = "#{$1}"
       else
-        @slider_height = "\'16:9\'"
+        @slider_height = "\'auto\'"
       end
       if markup =~ Captions
         @slider_captions = "true"
