@@ -139,4 +139,4 @@ You can selectively include these files. The plugin sets `slider_active` to `tru
 {% endif %}
 ```
 
-Note: It's possible that the above `Sliders on indexes` code might not work on Jekyll 2.5.3, if so please let me know by [commenting on this issue.](https://github.com/xHN35RQ/jekyll-ideal-image-slider/issues/1)
+**Note**: Using Jekyll 2.5.3, `post.slider_scripts` is empty when using the above `Sliders on indexes` code, which means sliders will be broken on index pages. Please [let me know](https://github.com/xHN35RQ/jekyll-ideal-image-slider/issues/1) if you have any idea why. If you're on 2.5.3 and want sliders on indexes, the only current way is to upgrade your Jekyll version.
