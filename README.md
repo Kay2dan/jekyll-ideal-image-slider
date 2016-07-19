@@ -8,7 +8,9 @@ Liquid tag plugin for Jekyll to create image sliders using  [Ideal Image Slider]
 
 2. Add this to your `_config.yml` file: `slider_array: []`
 
-3. Download and add [Ideal Image Slider](https://github.com/gilbitron/Ideal-Image-Slider) to your site. See below for [integration suggestions](#integration-suggestions).
+3. Add [Ideal Image Slider](https://github.com/gilbitron/Ideal-Image-Slider) to your site, either manually or with Bower.
+
+4. See below for [integration suggestions](#integration-suggestions).
 
 ## Syntax
 
@@ -139,4 +141,6 @@ You can selectively include these files. The plugin sets `slider_active` to `tru
 {% endif %}
 ```
 
-**Note**: Using Jekyll 2.5.3, `post.slider_scripts` is empty when using the above `Sliders on indexes` code, which means sliders will be broken on index pages. Please [let me know](https://github.com/xHN35RQ/jekyll-ideal-image-slider/issues/1) if you have any idea why. If you're on 2.5.3 and want sliders on indexes, the only current way is to upgrade your Jekyll version.
+## Support
+
+[Open an issue](https://github.com/xHN35RQ/jekyll-ideal-image-slider/issues) if you have any problems, questions or suggestions for improvement.
