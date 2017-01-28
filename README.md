@@ -6,7 +6,7 @@ Liquid tag plugin for Jekyll to create image sliders using  [Ideal Image Slider]
 
 1. Add `ideal_image_slider.rb` to your `_plugins` folder.
 
-2. Add this to your `_config.yml` file: `slider_array: []`
+2. Add the following to your `_config.yml` file: `slider_array: []`
 
 3. Add [Ideal Image Slider](https://github.com/gilbitron/Ideal-Image-Slider) to your site, either manually or with Bower.
 
