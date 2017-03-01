@@ -143,4 +143,4 @@ You can selectively include these files. The plugin sets `slider_active` to `tru
 
 ## Support
 
-[Open an issue](https://github.com/xHN35RQ/jekyll-ideal-image-slider/issues) if you have any problems, questions or suggestions for improvement.
+[Open an issue](https://github.com/jekylltools/jekyll-ideal-image-slider/issues) if you have any problems, questions or suggestions for improvement.

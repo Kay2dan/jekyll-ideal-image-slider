@@ -1,8 +1,7 @@
 # Jekyll Ideal Image Slider
-# Author: https://github.com/xHN35RQ
 # Description: Liquid tag plugin to create image sliders using Ideal Image Slider
-# Documentation: https://github.com/xHN35RQ/jekyll-ideal-image-slider#readme
-# Source: https://github.com/xHN35RQ/jekyll-ideal-image-slider
+# Documentation: https://github.com/jekylltools/jekyll-ideal-image-slider#readme
+# Source: https://github.com/jekylltools/jekyll-ideal-image-slider
 #
 # Syntax:
 #
