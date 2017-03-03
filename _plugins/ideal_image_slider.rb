@@ -1,28 +1,28 @@
-# Jekyll Ideal Image Slider
-# Description: Liquid tag plugin to create image sliders using Ideal Image Slider
+# Jekyll Ideal Image Slider v1.0
+# Description: Add image sliders to Jekyll with Ideal Image Slider
 # Documentation: https://github.com/jekylltools/jekyll-ideal-image-slider#readme
 # Source: https://github.com/jekylltools/jekyll-ideal-image-slider
 #
 # Syntax:
 #
-#  {% slider height [captions] %}
-#  {% endslider %}
+# {% slider height [captions] %}
+# {% endslider %}
 #
-# Usage:
+# Example Input:
 #
-#  Example Input:
-#  {% slider 700 captions %}
-#    ![alt text 1](/img/image1.jpg)
-#    [![alt text 2](/img/image2.jpg)](/page/url)
-#    [![alt text 3](/img/image3.jpg)](http://example.com)
-#  {% endslider %}
+# {% slider 700 captions %}
+#   ![alt text 1](image1.jpg)
+#   [![alt text 2](image2.jpg)](/page/url)
+#   [![alt text 3](image3.jpg)](http://example.com)
+# {% endslider %}
 #
-#  Example Output:
-#  <div id="slider">
-#    <img src="/img/image1.jpg" alt="alt text 1">
-#    <a href="/page/url"><img src="/img/image2.jpg" alt="alt text 2"></a>
-#    <a href="http://example.com"><img src="/img/image3.jpg" alt="alt text 3"></a>
-#  </div>
+# Example Output:
+#
+# <div id="slider">
+#   <img src="image1.jpg" alt="alt text 1">
+#   <a href="/page/url"><img src="image2.jpg" alt="alt text 2"></a>
+#   <a href="http://example.com"><img src="image3.jpg" alt="alt text 3"></a>
+# </div>
 
 module Jekyll
   class SliderTag < Liquid::Block
@@ -48,7 +48,8 @@ module Jekyll
     end
 
     def render(context)
-      context.environments.first['page']['slider_active'] = true
+      page = context.environments.first['page']
+      page['slider_active'] = true
       if @slider_height
         # generate slider id
         slider_id = "slider_" + ("a".."z").to_a.shuffle[0,5].join
@@ -79,6 +80,7 @@ module Jekyll
         slider
       else
         "Error processing input, expected syntax: {% slider height [captions] %}"
+        puts "Error: incorrect slider syntax in " + page['path']
       end
     end
   end
