@@ -1,14 +1,14 @@
 # Jekyll Ideal Image Slider
 
-Liquid tag plugin for Jekyll to create image sliders using  [Ideal Image Slider](https://github.com/gilbitron/Ideal-Image-Slider).
+Liquid tag plugin for Jekyll to create image sliders with [Ideal Image Slider](https://github.com/Codeinwp/Ideal-Image-Slider-JS). Not compatible with Github Pages.
 
 ## Installation
 
 1. Add `ideal_image_slider.rb` to your `_plugins` folder.
 
-2. Add the following to your `_config.yml` file: `slider_array: []`
+2. Add this line to your `_config.yml` file: `slider_array: []`
 
-3. Add [Ideal Image Slider](https://github.com/gilbitron/Ideal-Image-Slider) to your site, either manually or with Bower.
+3. Add [Ideal Image Slider](https://github.com/Codeinwp/Ideal-Image-Slider-JS) to your site, either manually or using Bower.
 
 4. See below for [integration suggestions](#integration-suggestions).
 
@@ -25,9 +25,9 @@ Surround a series of Markdown images with the following tag:
 
 ```
 {% slider %}
-  ![alt text 1](/img/image1.jpg)
-  ![alt text 2](/img/image2.jpg)
-  ![alt text 3](/img/image3.jpg)
+  ![alt text 1](image1.jpg)
+  ![alt text 2](image2.jpg)
+  ![alt text 3](image3.jpg)
 {% endslider %}
 ```
 
@@ -35,9 +35,9 @@ The plugin will render the following html for you:
 
 ```
 <div id="slider">
-  <img src="/img/image1.jpg" alt="alt text 1">
-  <img src="/img/image2.jpg" alt="alt text 2">
-  <img src="/img/image3.jpg" alt="alt text 3">
+  <img src="image1.jpg" alt="alt text 1">
+  <img src="image2.jpg" alt="alt text 2">
+  <img src="image3.jpg" alt="alt text 3">
 </div>
 ```
 
@@ -45,9 +45,9 @@ You can add links to the images like this:
 
 ```
 {% slider %}
-  [![alt text 1](/img/image1.jpg)](/page/url)
-  [![alt text 2](/img/image2.jpg)](/category/url)
-  [![alt text 3](/img/image3.jpg)](http://example.com)
+  [![alt text 1](image1.jpg)](/page/url)
+  [![alt text 2](image2.jpg)](/category/url)
+  [![alt text 3](image3.jpg)](http://example.com)
 {% endslider %}
 ```
 
@@ -55,13 +55,13 @@ And the plugin will add a clickable link to each image in the slider:
 
 ```
 <div id="slider">
-  <a href="/page/url"><img src="/img/image1.jpg" alt="alt text 1"></a>
-  <a href="/category/url"><img src="/img/image2.jpg" alt="alt text 2"></a>
-  <a href="http://example.com"><img src="/img/image3.jpg" alt="alt text 3"></a>
+  <a href="/page/url"><img src="image1.jpg" alt="alt text 1"></a>
+  <a href="/category/url"><img src="image2.jpg" alt="alt text 2"></a>
+  <a href="http://example.com"><img src="image3.jpg" alt="alt text 3"></a>
 </div>
 ```
 
-You can define the height of a slider by placing a number or an aspect ratio after `slider`. If you don't specify  height, the slider will [default to `auto`](https://github.com/gilbitron/Ideal-Image-Slider#settings).
+You can define the height of a slider by placing a number or an aspect ratio after `slider`. If you don't specify  height, the slider will [default to `auto`](https://github.com/Codeinwp/Ideal-Image-Slider-JS#settings).
 
 ```
 {% slider 700 %}
@@ -77,9 +77,9 @@ If you add `captions` after the height variable, it will enable captions for the
 ```
 ```
 {% slider captions %}
-  ![this is the alt text](/img/image1.jpg)
-  ![it will be used as a caption](/img/image2.jpg)
-  ![for the image](/img/image3.jpg)
+  ![this is the alt text](image1.jpg)
+  ![it will be used as a caption](image2.jpg)
+  ![for the image](image3.jpg)
 {% endslider %}
 ```
 
@@ -89,16 +89,16 @@ Add the CSS to your page head template:
 
 ```
 <!-- Slider CSS -->
-<link rel="stylesheet" href="{{ site.baseurl }}/assets/css/slider.css">
-<link rel="stylesheet" href="{{ site.baseurl }}/assets/css/theme.css">
+<link rel="stylesheet" href="{{ "/assets/css/slider.css" | relative_url }}">
+<link rel="stylesheet" href="{{ "/assets/css/theme.css" | relative_url }}">
 ```
 
 Add the Javascript to your page template just before the `</body>` tag:
 
 ```
 <!-- Slider -->
-<script src="{{ site.baseurl }}/assets/js/slider.js"></script>
-<script src="{{ site.baseurl }}/assets/js/iis-captions.js"></script>
+<script src="{{ "/assets/js/slider.js" | relative_url }}"></script>
+<script src="{{ "/assets/js/iis-captions.js" | relative_url }}"></script>
 <!-- Sliders on pages -->
 {% for script in page.slider_scripts %}
   {{ script }}
@@ -111,23 +111,23 @@ Add the Javascript to your page template just before the `</body>` tag:
 {% endfor %}
 ```
 
-Be sure to change the paths to point the location of Javascript and CSS files in your site.
+Be sure to change the paths to the correct location of the Javascript and CSS files in your site.
 
 You can selectively include these files. The plugin sets `slider_active` to `true` for each page or post with a slider. Using the code below, CSS and Javascript will be loaded only for those pages with sliders.
 
 ```
 {% if page.slider_active %}
   <!-- Slider CSS -->
-  <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/slider.css">
-  <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/theme.css">
+  <link rel="stylesheet" href="{{ "/assets/css/slider.css" | relative_url }}">
+  <link rel="stylesheet" href="{{ "/assets/css/theme.css" | relative_url }}">
 {% endif %}
 ```
 
 ```
 {% if page.slider_active %}
   <!-- Slider -->
-  <script src="{{ site.baseurl }}/assets/js/slider.js"></script>
-  <script src="{{ site.baseurl }}/assets/js/iis-captions.js"></script>
+  <script src="{{ "/assets/js/slider.js" | relative_url }}"></script>
+  <script src="{{ "/assets/js/iis-captions.js" | relative_url }}"></script>
   <!-- Sliders on pages -->
   {% for script in page.slider_scripts %}
     {{ script }}
