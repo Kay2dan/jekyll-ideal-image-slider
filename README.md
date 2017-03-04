@@ -89,16 +89,16 @@ Add the CSS to your page head template:
 
 ```
 <!-- Slider CSS -->
-<link rel="stylesheet" href="{{ "/assets/css/slider.css" | relative_url }}">
-<link rel="stylesheet" href="{{ "/assets/css/theme.css" | relative_url }}">
+<link rel="stylesheet" href="{{ "/path/to/ideal-image-slider.css" | relative_url }}">
+<link rel="stylesheet" href="{{ "/path/to/themes/default.css" | relative_url }}">
 ```
 
 Add the Javascript to your page template just before the `</body>` tag:
 
 ```
 <!-- Slider -->
-<script src="{{ "/assets/js/slider.js" | relative_url }}"></script>
-<script src="{{ "/assets/js/iis-captions.js" | relative_url }}"></script>
+<script src="{{ "/path/to/ideal-image-slider.min.js" | relative_url }}"></script>
+<script src="{{ "/path/to/iis-captions.js" | relative_url }}"></script>
 <!-- Sliders on pages -->
 {% for script in page.slider_scripts %}
   {{ script }}
@@ -118,16 +118,16 @@ You can selectively include these files. The plugin sets `slider_active` to `tru
 ```
 {% if page.slider_active %}
   <!-- Slider CSS -->
-  <link rel="stylesheet" href="{{ "/assets/css/slider.css" | relative_url }}">
-  <link rel="stylesheet" href="{{ "/assets/css/theme.css" | relative_url }}">
+  <link rel="stylesheet" href="{{ "/path/to/ideal-image-slider.css" | relative_url }}">
+  <link rel="stylesheet" href="{{ "/path/to/themes/default.css" | relative_url }}">
 {% endif %}
 ```
 
 ```
 {% if page.slider_active %}
   <!-- Slider -->
-  <script src="{{ "/assets/js/slider.js" | relative_url }}"></script>
-  <script src="{{ "/assets/js/iis-captions.js" | relative_url }}"></script>
+  <script src="{{ "/path/to/ideal-image-slider.min.js" | relative_url }}"></script>
+  <script src="{{ "/path/to/iis-captions.js" | relative_url }}"></script>
   <!-- Sliders on pages -->
   {% for script in page.slider_scripts %}
     {{ script }}
