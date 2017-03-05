@@ -6,7 +6,7 @@ Liquid tag plugin to add image sliders to Jekyll with [Ideal Image Slider](https
 
 1. Add [`_plugins/ideal_image_slider.rb`](_plugins/ideal_image_slider.rb) to your `_plugins` folder.
 
-2. Add this line to your `_config.yml` file: `slider_array: []`
+2. Add this line to your `_config.yml` file: `iis_slider_array: []`
 
 3. Add [Ideal Image Slider](https://github.com/Codeinwp/Ideal-Image-Slider-JS) to your site, either manually or using Bower.
 
@@ -85,7 +85,7 @@ If you add `captions` after the height variable, it will enable captions for the
 
 ## Integration suggestions
 
-Add the CSS to your page head template:
+Add the CSS to your theme head:
 
 ```
 <!-- Slider CSS -->
@@ -100,12 +100,12 @@ Add the Javascript to your page template just before the `</body>` tag:
 <script src="{{ "/path/to/ideal-image-slider.min.js" | relative_url }}"></script>
 <script src="{{ "/path/to/iis-captions.js" | relative_url }}"></script>
 <!-- Sliders on pages -->
-{% for script in page.slider_scripts %}
+{% for script in page.iis_slider_scripts %}
   {{ script }}
 {% endfor %}
 <!-- Sliders on indexes -->
 {% for post in paginator.posts %}
-  {% for script in post.slider_scripts %}
+  {% for script in post.iis_slider_scripts %}
     {{ script }}
   {% endfor %}
 {% endfor %}
@@ -113,10 +113,10 @@ Add the Javascript to your page template just before the `</body>` tag:
 
 Be sure to change the paths to the correct location of the Javascript and CSS files in your site.
 
-You can selectively include these files. The plugin sets `slider_active` to `true` for each page or post with a slider. Using the code below, CSS and Javascript will be loaded only for those pages with sliders.
+You can selectively include these files. The plugin sets `iis_slider_active` to `true` for each page or post with a slider. Using the code below, CSS and Javascript will be loaded only for those pages with sliders.
 
 ```
-{% if page.slider_active %}
+{% if page.iis_slider_active %}
   <!-- Slider CSS -->
   <link rel="stylesheet" href="{{ "/path/to/ideal-image-slider.css" | relative_url }}">
   <link rel="stylesheet" href="{{ "/path/to/themes/default.css" | relative_url }}">
@@ -124,17 +124,17 @@ You can selectively include these files. The plugin sets `slider_active` to `tru
 ```
 
 ```
-{% if page.slider_active %}
+{% if page.iis_slider_active %}
   <!-- Slider -->
   <script src="{{ "/path/to/ideal-image-slider.min.js" | relative_url }}"></script>
   <script src="{{ "/path/to/iis-captions.js" | relative_url }}"></script>
   <!-- Sliders on pages -->
-  {% for script in page.slider_scripts %}
+  {% for script in page.iis_slider_scripts %}
     {{ script }}
   {% endfor %}
   <!-- Sliders on indexes -->
   {% for post in paginator.posts %}
-    {% for script in post.slider_scripts %}
+    {% for script in post.iis_slider_scripts %}
       {{ script }}
     {% endfor %}
   {% endfor %}

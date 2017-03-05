@@ -49,7 +49,7 @@ module Jekyll
 
     def render(context)
       page = context.environments.first['page']
-      page['slider_active'] = true
+      page['iis_slider_active'] = true
       if @slider_height
         # generate slider id
         slider_id = "slider_" + ("a".."z").to_a.shuffle[0,5].join
@@ -70,9 +70,9 @@ module Jekyll
         slider_script += "slider.addCaptions();" if @slider_captions
         slider_script += "slider.start();"
         slider_script += "</script>"
-        slider_array = context.environments.first['site']['slider_array']
+        slider_array = context.environments.first['site']['iis_slider_array']
         slider_array << slider_script
-        context.environments.first['page']['slider_scripts'] = slider_array
+        context.environments.first['page']['iis_slider_scripts'] = slider_array
         # render the markdown, then remove all <p></p> tags from the html
         output = converter.convert(render_block(context)).gsub(/<\/?p>/, '')
         # render the slider
