@@ -1,6 +1,6 @@
 # Jekyll Ideal Image Slider
 
-Liquid tag plugin to add image sliders to Jekyll with [Ideal Image Slider](https://github.com/Codeinwp/Ideal-Image-Slider-JS). This plugin is not compatible with Github Pages. Use [Jekyll Ideal Image Slider Include](https://github.com/jekylltools/jekyll-ideal-image-slider-include) for Github Pages compatibility.
+Liquid tag plugin to add image sliders to Jekyll with [Ideal Image Slider](https://github.com/Codeinwp/Ideal-Image-Slider-JS). This plugin is not compatible with Github Pages. Instead use [Jekyll Ideal Image Slider Include](https://github.com/jekylltools/jekyll-ideal-image-slider-include) for Github Pages compatibility and more configuration options.
 
 ## Installation
 
