@@ -15,7 +15,7 @@ Liquid tag plugin to add image sliders to Jekyll with [Ideal Image Slider](https
 ## Syntax
 
 ```
-{% slider height [captions] %}
+{% slider height [bullets] [captions] %}
 {% endslider %}
 ```
 
@@ -69,6 +69,13 @@ You can define the height of a slider by placing a number or an aspect ratio aft
 {% slider auto %}
 ```
 
+If you add `bullets` after the height variable, it will enable bullet navigation for the slider:
+
+```
+{% slider bullets %}
+{% slider 420 bullets %}
+```
+
 If you add `captions` after the height variable, it will enable captions for the slider. The alt text of an image will be used as a caption for that image:
 
 ```
@@ -98,6 +105,7 @@ Add the Javascript to your page template just before the `</body>` tag:
 ```
 <!-- Slider -->
 <script src="{{ "/path/to/ideal-image-slider.min.js" | relative_url }}"></script>
+<script src="{{ "/path/to/iis-bullet-nav.js" | relative_url }}"></script>
 <script src="{{ "/path/to/iis-captions.js" | relative_url }}"></script>
 <!-- Sliders on pages -->
 {% for script in page.iis_slider_scripts %}
@@ -127,6 +135,7 @@ You can selectively include these files. The plugin sets `iis_slider_active` to 
 {% if page.iis_slider_active %}
   <!-- Slider -->
   <script src="{{ "/path/to/ideal-image-slider.min.js" | relative_url }}"></script>
+  <script src="{{ "/path/to/iis-bullet-nav.js" | relative_url }}"></script>
   <script src="{{ "/path/to/iis-captions.js" | relative_url }}"></script>
   <!-- Sliders on pages -->
   {% for script in page.iis_slider_scripts %}
