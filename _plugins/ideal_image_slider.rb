@@ -1,4 +1,4 @@
-# Jekyll Ideal Image Slider v1.1
+# Jekyll Ideal Image Slider v1.2
 # Description: Add image sliders to Jekyll with Ideal Image Slider
 # Documentation: https://github.com/jekylltools/jekyll-ideal-image-slider#readme
 # Source: https://github.com/jekylltools/jekyll-ideal-image-slider
@@ -68,13 +68,13 @@ module Jekyll
         end
         # render the slider script
         slider_script = "<script>"
-        slider_script += "var slider = new IdealImageSlider.Slider({"
+        slider_script += "var #{slider_id} = new IdealImageSlider.Slider({"
         slider_script += "selector:\'\##{slider_id}\',"
         slider_script += "height:#{@slider_height}"
         slider_script += "});"
-        slider_script += "slider.addBulletNav();" if @slider_bullets
-        slider_script += "slider.addCaptions();" if @slider_captions
-        slider_script += "slider.start();"
+        slider_script += "#{slider_id}.addBulletNav();" if @slider_bullets
+        slider_script += "#{slider_id}.addCaptions();" if @slider_captions
+        slider_script += "#{slider_id}.start();"
         slider_script += "</script>"
         slider_array = context.environments.first['site']['iis_slider_array']
         slider_array << slider_script
