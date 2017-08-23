@@ -149,7 +149,3 @@ You can selectively include these files. The plugin sets `iis_slider_active` to 
   {% endfor %}
 {% endif %}
 ```
-
-## Support
-
-[Open an issue](https://github.com/jekylltools/jekyll-ideal-image-slider/issues) if you have any problems, questions or suggestions for improvement.
